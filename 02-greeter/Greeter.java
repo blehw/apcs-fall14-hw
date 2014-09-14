@@ -1,8 +1,5 @@
-import java.io*;
-import java.util*;
-
 public class Greeter {
     public void greet() {
-	System.out.prinln("Hello world");
+	System.out.println("Hello world");
     }
 }
