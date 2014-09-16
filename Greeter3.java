@@ -3,6 +3,10 @@ import java.io.*;
 import java.util.*;
 
 public class Greeter3 {
+    /* Attributes go here
+       We call them instance variables
+    */
+    public String greetlng = new String("Hello world");
     /* 
        public <- can be used outside of the class
        

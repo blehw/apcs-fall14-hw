@@ -1,10 +1,7 @@
-public class Driver2 {
+public class Driver3  {
 
     public static void main(String[] args) {
 	Greeter g1 = new Greeter();
-	//the above line is the same as 
-	//Greeter g1;
-	//g1 = new Greeter();
 	Greeter g2,g3;
 	g2 = new Greeter();
 	
