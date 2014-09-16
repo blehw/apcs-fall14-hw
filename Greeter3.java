@@ -2,7 +2,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Greeter {
+public class Greeter3 {
     /* 
        public <- can be used outside of the class
        
