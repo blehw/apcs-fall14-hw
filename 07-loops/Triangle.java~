@@ -1,0 +1,5 @@
+public class Triangle {
+    public String triangle1(int h) {
+	t = "";
+
+	return t;
