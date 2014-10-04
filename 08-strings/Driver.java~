@@ -1,0 +1,6 @@
+public class Driver {
+    public static void main(String[] args) {
+	Stringy s = new Stringy();
+	System.out.println(s.frame(4,5));
+    }
+}

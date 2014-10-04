@@ -1,0 +1,24 @@
+public class Stringy {
+    public String frame(int r, int c) {
+	int rowcount;
+	int colcount;
+	String s = "";
+	for (rowcount=1;rowcount<=r;rowcount=rowcount+1) {
+	    s = s + "*";
+	}
+	s = s + "\n";
+	for (colcount=1;colcount<c;colcount=colcount+1) {
+	    s = s + "*";
+	    for (rowcount=1;rowcount<r-1;rowcount=rowcount+1) {
+		s = s + " ";
+	    }
+	    s = s + "*";
+	    s = s + "\n";
+	}
+	for (rowcount=1;rowcount<=r;rowcount=rowcount+1) {
+	    s = s + "*";
+	}
+	s = s + "\n";
+	return s;
+    }
+}
