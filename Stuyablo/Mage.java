@@ -11,18 +11,29 @@ public class Mage extends BaseChar {
     }
     public String spell(Monster other, String userInput){
 	if(userInput.equals( "1") && this.getACC() > 20 ) {
-	    other.setHP(other.getHP() - 10);
-	    this.setMP(this.getMP() - 20);
-	    return(this + " shot a fireball at " + other);
-	   
+	    if ((this.getMP() - 20) < 0) {
+		return("Not enough mana!");
+	    } else {
+		other.setHP(other.getHP() - 20);
+		this.setMP(this.getMP() - 20);
+		return(this + " shot a fireball at " + other + ". " + other + " lost 20 HP." );
+	    }
 	}else if(userInput.equals("2") && this.getACC() > 0) {
-	    other.setHP(other.getHP() - 10);
-	    this.setMP(this.getMP() - 30);
-	    return(this + " electrified " + other);
+	    if ((this.getMP() - 30) < 0) {
+		return("Not enough mana!");
+	    } else {
+		other.setHP(other.getHP() - 20);
+		this.setMP(this.getMP() - 30);
+		return(this + " electrified " + other + ". " + other + " lost 20 HP.");
+	    }
 	}else if(userInput.equals("3") && this.getACC() > 20) {
-	    other.setHP(other.getHP() - 20);
+	    if ((this.getMP() - 40) < 0) {
+		return("Not enough mana!");
+	    } else {
+	    other.setHP(other.getHP() - 30);
 	    this.setMP(this.getMP() - 40);
-	    return(this + " froze " + other);
+	    return(this + " froze " + other + ". " + other + " lost 30 HP.");
+	    }
 	} else{
 	    this.setMP(this.getMP()-30);
 	    return "The spell fizzled and died";
