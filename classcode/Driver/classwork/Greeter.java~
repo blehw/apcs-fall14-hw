@@ -1,0 +1,5 @@
+public class Greeter {
+    private String greeting = new String("Hello");
+    public void getPerson(String s){
+	return greeting + s;
+    }
