@@ -16,7 +16,7 @@ public class Driver {
 	name = in.nextLine();
 
 	Mage mage = new Mage(100, 100, 100, 100, 100, 100, 100, name, "staff");
-	Monster monster = new Monster(100, 100, 100, 100, 100, 100, 3, "Evil Travelining Salesman", "misc. body parts");
+	Monster monster = new Monster(100, 100, 100, 100, 100, 100, 3, "Evil Traveling Salesman", "misc. body parts");
 
 	System.out.print("Hello " + mage + "! Enter the world of GENERIC RPG FANTASY LAND");
 	for (i=1;i<3;i=i+1) {
