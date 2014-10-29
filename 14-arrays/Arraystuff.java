@@ -58,4 +58,22 @@ public class Arraystuff {
 	return max;
     }
 
+    public int sum67(int[] nums) {
+	int i=0;
+	int sum=0;
+	int othersum=0;
+	while (i<nums.length) {
+	    if (nums[i]==6) {
+		while (nums[i]!=7) {
+		    othersum = othersum + nums[i];
+		    i = i + 1;
+		}
+	    }
+	    sum = sum + nums[i];
+	    i = i + 1;
+	}
+	sum = sum - othersum;
+	return sum;
+}
+
 }
