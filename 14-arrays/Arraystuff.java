@@ -58,6 +58,17 @@ public class Arraystuff {
 	return max;
     }
 
+    public int freq(int i){
+	int b = a[i];
+	int count=0;
+	for (int k:a) {
+	    if (k==b){
+		count=count+1;
+	    }
+	}
+	return count;
+    }
+
     public int sum67(int[] nums) {
 	int i=0;
 	int sum=0;
@@ -65,15 +76,83 @@ public class Arraystuff {
 	while (i<nums.length) {
 	    if (nums[i]==6) {
 		while (nums[i]!=7) {
-		    othersum = othersum + nums[i];
 		    i = i + 1;
+		} 
+		i = i + 1;
+	    } else {
+		sum = sum + nums[i];
+		i = i + 1;
+	    } 
+	}
+	return sum;
+    }
+
+    public boolean more14(int[] nums) {
+	int ones = 0;
+	int fours = 0;
+	for (int i=0;i<nums.length;i=i+1) {
+	    if (nums[i]==1) {
+		ones = ones + 1;
+	    }
+	    if (nums[i]==4) {
+		fours = fours + 1;
+	    }
+	}
+	if (ones > fours) {
+	    return true;
+	} else {
+	    return false;
+	}
+    }
+
+    public int[] tenRun(int[] nums) {
+	for(int i = 0; i <nums.length; i ++){
+	    if (nums[i]%10==0){
+		if (i+1<nums.length){
+		    if (nums[i+1]%10!=0){
+			nums[i+1]=nums[i];
+		    }
 		}
 	    }
-	    sum = sum + nums[i];
-	    i = i + 1;
 	}
-	sum = sum - othersum;
-	return sum;
-}
+	return nums;
+    }
 
+    public boolean tripleUp(int[] nums) {
+	for (int i=0;i<nums.length-2;i=i+1) {
+	    if (nums[i+1] - nums[i] == 1) {
+      if (nums[i+2] - nums[i+1] == 1) {
+	  return true;
+      }
+	    }
+	}
+	return false;
+    }
+
+    public boolean canBalance(int[] nums) {
+	int sum = 0;
+	for (int i=0;i<nums.length;i=i+1) {
+	    sum = sum + nums[i];
+	}
+	double half = sum/2.0;
+	for (int i=0;i<nums.length;i=i+1) {
+	    half = half - nums[i];
+	    if (half == 0) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    public int[] seriesUp(int n) {
+    int[] nums = new int[(n*(n+1))/2];
+    int a=0;
+    for (int i=0;i<n;i=i+1){
+	for (int k=0;k<i+1;k=k+1){
+	    nums[a]=k+1;
+	    a+=1;
+	}
+    }
+    return nums;
+}
 }
