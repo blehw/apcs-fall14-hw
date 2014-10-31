@@ -145,14 +145,35 @@ public class Arraystuff {
     }
 
     public int[] seriesUp(int n) {
-    int[] nums = new int[(n*(n+1))/2];
-    int a=0;
-    for (int i=0;i<n;i=i+1){
-	for (int k=0;k<i+1;k=k+1){
-	    nums[a]=k+1;
-	    a+=1;
+	int[] nums = new int[(n*(n+1))/2];
+	int a=0;
+	for (int i=0;i<n;i=i+1){
+	    for (int k=0;k<i+1;k=k+1){
+		nums[a]=k+1;
+		a+=1;
+	    }
 	}
+	return nums;
     }
-    return nums;
-}
+
+    /* does not work yet
+    public int maxMirror(int[] nums) {
+	int counter = 0;
+	int increment = 1;
+	int[] current;
+	for (int i=0;i<nums.length;i=i+1) {
+	    for (int k=i;k<nums.length;k=k+1) {
+		if (nums[i] == nums[k]) {
+		    counter = counter + 1;
+		    while (nums[i+increment] == nums[k-increment]) {
+			counter = counter + 1;
+			increment = increment + 1;
+		    }
+		}
+	    }
+	}
+	return counter;
+    }
+    */
+
 }
