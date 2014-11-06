@@ -14,7 +14,7 @@ public class Arraystuff {
 	rnd = new Random();
 	a = new int[n];
 	for (int i=0;i<a.length;i=i+1) {
-	    a[i] = 75 + rnd.nextInt(76);
+	    a[i] = 75 + rnd.nextInt(5);
 	}
     }
     
@@ -59,10 +59,9 @@ public class Arraystuff {
     }
 
     public int freq(int i){
-	int b = a[i];
 	int count=0;
-	for (int k:a) {
-	    if (k==b){
+	for (int k=0;k<a.length;k=k+1) {
+	    if (a[k]==i){
 		count=count+1;
 	    }
 	}
@@ -175,5 +174,20 @@ public class Arraystuff {
 	return counter;
     }
     */
+
+    /*array with buckets*/
+  
+    public int mode() {
+	int i = 0;
+	int count = 1;
+	int mode = a[i];
+	for (i=0;i<a.length;i=i+1) {
+	    if (freq(a[i]) > count) {
+		mode = a[i];
+		count = freq(a[i]);
+	    }
+	}
+	return mode;
+    }
 
 }
