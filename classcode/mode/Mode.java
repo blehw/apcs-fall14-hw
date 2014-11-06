@@ -77,7 +77,7 @@ public class Mode {
 				}
 
 				Mode m = new Mode(n,maxval);
-				// System.out.println(m);
+				System.out.println(m);
 				System.out.println("modecount = "+m.mode());
 		}
 
