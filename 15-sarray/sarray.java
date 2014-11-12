@@ -68,7 +68,11 @@ public class sarray {
     }
     
     public int get(int index) {
-	return data[index];
+	try {
+	    return data[index];
+	} catch (Exception e) {
+	    System.out.println("Index out of bounds");
+	}
     }
 
     public int set(int index, int i) {
@@ -78,9 +82,13 @@ public class sarray {
     }    
 
     public int remove(int index) {
-	int oldval = data[index];
-	data[index] = 0;
-	return oldval;
+	try {
+	    int oldval = data[index];
+	    data[index] = 0;
+	    return oldval;
+	} catch (Exception e) {
+	    System.out.println("Index out of bounds");
+	}
     }
 
     public static void main(String[] args) {
