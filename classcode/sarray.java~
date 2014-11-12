@@ -1,0 +1,33 @@
+public Class sarray {
+    private int[] data;
+    //private int last;
+
+    public sarray() {
+	//start array at size 10
+    }
+
+    public void add(int i) {
+	//add int to end
+    }
+
+    public void add(int index, int i) {
+	//add at index, shift everything else down
+    }
+
+    public void get(int index) {
+	//get item at index
+    }
+
+    public void set(int index, int i) {
+	//set item at index to int i
+    }
+
+    public int size() {
+	//return number of items in set
+    }
+
+    public void remove(int index) {
+	//removes item from set
+    }
+
+}
