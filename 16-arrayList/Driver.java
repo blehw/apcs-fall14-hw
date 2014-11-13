@@ -9,8 +9,11 @@ public class Driver {
 	    al.add(r.nextInt(5));
 	}
 	System.out.println(al);
-	for (int i = 0; i < al.size(); i++) {
-
+	for (int i = 0; i < al.size()-1; i++) {
+	    if (al.get(i) == al.get(i+1)) {
+		al.remove(i+1);
+	    }
 	}
+	System.out.println(al);
     }
 }
