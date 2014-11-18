@@ -29,7 +29,7 @@ public class Driver {
 	
 	for (int i=0;i<10;i++) {
 	    s = s + a[i] + ", ";
-	}	
+ 	}	
 
 	int[]b = new int[10];
 	int x = 10;
@@ -40,7 +40,6 @@ public class Driver {
 	    b[q] = a[k];
 	    k = k + 1;
 	    x = x - 1;
-	    
 	}
 	    
 
