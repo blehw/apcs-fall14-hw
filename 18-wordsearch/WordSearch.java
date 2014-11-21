@@ -69,16 +69,68 @@ public class WordSearch{
 
 	int d= c;
 	
-	for (int i=w.length()-1;i<0;i--) {
+	for (int i=w.length()-1;i>=0;i--) {
 	    if (board[r][d] != w.charAt(i) && board[r][d] != '.') {
 		throw new ArrayIndexOutOfBoundsException();
 	    }
-	    d--;
+	    d++;
 	}
 
-	for (int i=w.length()-1;i<0;i--) {
+	for (int i=w.length()-1;i>=0;i--) {
 	    board[r][c] = w.charAt(i);
-	    c--;
+	    c++;
+	}
+    }
+
+    public void addWordV(String w,int row, int col){
+	int r = row, c = col;
+	
+	if (r>=20) {
+	    r = 20-w.length();
+	}
+
+	if (c>=30-w.length()) {
+	    c = 29;
+	}
+
+	int d= r;
+	
+	for (int i=0;i<w.length();i++) {
+	    if (board[d][c] != w.charAt(i) && board[d][c] != '.') {
+		throw new ArrayIndexOutOfBoundsException();
+	    }
+	    d++;
+	}
+
+	for (int i=0;i<w.length();i++) {
+	    board[r][c] = w.charAt(i);
+	    r++;
+	}
+    }	   
+
+    public void addWordVbw(String w,int row, int col){
+	int r = row, c = col;
+
+	if (r>=20) {
+	    r = 20-w.length();
+	}
+
+	if (c>=30-w.length()) {
+	    c = 29;
+	}
+
+	int d= r;
+	
+	for (int i=w.length()-1;i>=0;i--) {
+	    if (board[d][c] != w.charAt(i) && board[d][c] != '.') {
+		throw new ArrayIndexOutOfBoundsException();
+	    }
+	    d++;
+	}
+
+	for (int i=w.length()-1;i>=0;i--) {
+	    board[r][c] = w.charAt(i);
+	    r++;
 	}
     }
     
@@ -92,9 +144,13 @@ public class WordSearch{
 	w.addWordH("hello",100,500);
 	w.addWordH("hello",5,555);
 	System.out.println(w);
-	w.addWordHbw("hello",7,555);
-	System.out.println(w);
 	w.addWordHbw("boop",5,5);
+	System.out.println(w);
+	w.addWordV("trello",10,15);
+	System.out.println(w);
+	w.addWordVbw("foo",10,5);
+	System.out.println(w);
+	w.addWordV("trello",155,155);
 	System.out.println(w);
     }
 }
