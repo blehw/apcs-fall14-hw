@@ -15,7 +15,7 @@ public class sarraystr {
 	return s;
     }
 
-    public void makeArray() {
+    private void makeArray() {
 	String[] newArray = new String[data.length + 1];
 	for (int i=0;i<data.length;i++) {
 	    newArray[i] = data[i];
