@@ -1,6 +1,6 @@
 public class osarray extends sarraystr {
 
-    public void add(String s) {
+    public boolean add(String s) {
 	if (super.size() == 0) {		
 	    super.add(s);
 	} else {
@@ -33,6 +33,7 @@ public class osarray extends sarraystr {
 		super.add(s);
 	    }
 	}
+	return true;
     }
 
     public void add(int index, String s) {

@@ -23,7 +23,7 @@ public class sarraystr {
 	data = newArray;
     }
 
-    public void add(String s) {
+    public boolean add(String s) {
         if (last<data.length) {
 	    data[last +1] = s;
 	    last +=1;
@@ -33,6 +33,7 @@ public class sarraystr {
 	    data[last +1] = s;
 	    last +=1;
 	}
+	return true;
     }
     
     public void add(int index, String s) {
@@ -86,6 +87,15 @@ public class sarraystr {
 	    last = last - 1;
 	} catch (Exception e) {
 	    System.out.println("Index out of bounds");
+	}
+    }
+
+    public void isearch() {
+	int k;
+	for (int i=0;i<data.length;i++) {
+	    for (k=0;k<i;i++) {
+		a[k] = a[k+1];
+	    }
 	}
     }
 
