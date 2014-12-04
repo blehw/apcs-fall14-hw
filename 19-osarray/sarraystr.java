@@ -72,10 +72,9 @@ public class sarraystr {
 	return data[index];
     }
    
-    public String set(int index, String s) {
+    public void set(int index, String s) {
         String oldstr = data[index];
 	data[index] = s;
-	return oldstr;
     }    
 
     public void remove(int index) {
@@ -90,16 +89,21 @@ public class sarraystr {
 	}
     }
 
-    public void isearch() {
+    public void isort() {
 	int k;
-	for (int i=0;i<data.length;i++) {
-	    for (k=0;k<i;i++) {
-		a[k] = a[k+1];
+	for (int i=last;i>0;i--) {
+	    String val = data[i];
+	    for (k=last;k>i;k--) {
+		if (data[i].compareTo(data[k])>0) {
+		    data[k] = data[k+1];
+		} else {
+		    set(0,val);
+		}
 	    }
 	}
     }
 
-    /*
+    
     public static void main(String[] args) {
 	sarraystr s = new sarraystr();
 	System.out.println("size: " + s.size());
@@ -111,7 +115,6 @@ public class sarraystr {
 	System.out.println("size: " + s.size());
 	s.add(2,"shmoop");
 	System.out.println(s);
-	s.add(11,"nooice");
 	System.out.println("size: " + s.size());
 	System.out.println(s);
 	System.out.println("index at 3: " + s.get(3));
@@ -120,6 +123,8 @@ public class sarraystr {
 	System.out.println(s);
 	s.remove(0);
 	System.out.println(s);
+	s.isort();
+	System.out.println(s);
     }
-    */
+
 }
