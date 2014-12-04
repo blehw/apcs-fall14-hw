@@ -72,9 +72,10 @@ public class sarraystr {
 	return data[index];
     }
    
-    public void set(int index, String s) {
+    public String set(int index, String s) {
         String oldstr = data[index];
 	data[index] = s;
+	return oldstr;
     }    
 
     public void remove(int index) {
@@ -91,40 +92,56 @@ public class sarraystr {
 
     public void isort() {
 	int k;
-	for (int i=last;i>0;i--) {
-	    String val = data[i];
-	    for (k=last;k>i;k--) {
-		if (data[i].compareTo(data[k])>0) {
-		    data[k] = data[k+1];
-		} else {
-		    set(0,val);
+	String val;
+	for (int i=0;i<=last;i++) {
+	    val = data[i];
+	    for (k=i;k>0&&val.compareTo(data[i-1])<=0;k--) {
+		data[k] = data[k-1];
+	    }
+	    data[k] = val;
+	}
+    }
+
+    public void ssort() {
+	String min = "";
+	String oldstr="";
+	int index=0;
+	for (int i=0;i<=last;i++) {
+	    int k=i;
+	    min=data[k];
+	    for (k=i;k<=last;k++) {
+		if (data[k].compareTo(min)<0) {
+		    min = data[k];
+		    index=k;
 		}
 	    }
+	    oldstr = data[i];
+	    data[i] = min;
+	    data[index] = oldstr;
 	}
+
     }
 
     
     public static void main(String[] args) {
-	sarraystr s = new sarraystr();
-	System.out.println("size: " + s.size());
-        s.add("hello");
-	s.add("friend");
-	System.out.println(s);
-	s.add("boop");	
-        System.out.println(s);
-	System.out.println("size: " + s.size());
-	s.add(2,"shmoop");
-	System.out.println(s);
-	System.out.println("size: " + s.size());
-	System.out.println(s);
-	System.out.println("index at 3: " + s.get(3));
-	System.out.println("size: " + s.size());
-	s.set(1,"put");
-	System.out.println(s);
-	s.remove(0);
-	System.out.println(s);
-	s.isort();
-	System.out.println(s);
+	sarraystr s1 = new sarraystr();
+        s1.add("c");
+	s1.add("z");
+	s1.add("b");	
+	s1.add("a");
+	s1.add("q");
+	System.out.println("before isort:\n"+ s1);
+	s1.isort();
+	System.out.println("after isort:\n"+s1);
+	sarraystr s2 = new sarraystr();
+	s2.add("c");
+	s2.add("z");
+	s2.add("b");	
+	s2.add("a");
+	s2.add("q");
+	System.out.println("before ssort:\n"+ s2);
+	s2.ssort();
+	System.out.println("after ssort:\n"+s2);
     }
 
 }
