@@ -91,14 +91,14 @@ public class sarraystr {
     }
 
     public void isort() {
-	int k;
 	String val;
-	for (int i=0;i<=last;i++) {
+	int k;
+	for (int i=0;i<last+1;i++) {
 	    val = data[i];
-	    for (k=i;k>0&&val.compareTo(data[i-1])<=0;k--) {
+	    for (k=i;k>0&&val.compareTo(data[k-1])<=0;k--) {
 		data[k] = data[k-1];
 	    }
-	    data[k] = val;
+	    data[k]=val;
 	}
     }
 
@@ -119,9 +119,29 @@ public class sarraystr {
 	    data[i] = min;
 	    data[index] = oldstr;
 	}
-
     }
 
+    public boolean bcheck() {
+	for (int i=0;i<size()-1;i++) {
+	    if (data[i].compareTo(data[i+1])>0) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    public void bsort() {
+	String val;
+	while (bcheck()) {
+	    for (int i=0;i<size()-1;i++) {
+		if (data[i].compareTo(data[i+1])>0) {
+		    val = data[i];
+		    data[i] = data[i+1];
+		    data[i+1] = val;
+		}
+	    }
+	}
+    }
     
     public static void main(String[] args) {
 	sarraystr s1 = new sarraystr();
@@ -142,6 +162,15 @@ public class sarraystr {
 	System.out.println("before ssort:\n"+ s2);
 	s2.ssort();
 	System.out.println("after ssort:\n"+s2);
+	sarraystr s3 = new sarraystr();
+	s3.add("c");
+	s3.add("z");
+	s3.add("b");	
+	s3.add("a");
+	s3.add("q");
+	System.out.println("before bsort:\n"+s3);
+	s3.bsort();
+	System.out.println("after bsort:\n"+s3);
     }
 
 }
