@@ -92,8 +92,8 @@ public class sarraystr {
     }
 
     public void fill() {
-	for (int i=0;i>=0;i--) {
-	    data[i] = letters.substring(26-i,26-i+1);
+	for (int i=0;i<25;i++) {
+	    data[i] = letters.substring(25-i,25-i+1);
 	    last = last + 1;
 	}
     }
@@ -184,9 +184,10 @@ public class sarraystr {
 	s1.add("a");
 	s1.add("q");
 	6 comparisons, 16 assignments
-	s1.fill();
+	s1.fill(); (k to b, reverse order)
 	45 comparisons, 65 assignments
 	*/
+	s1.fill();
 	System.out.println("before isort:\n"+ s1);
 	s1.isort();
 	System.out.println("after isort:\n"+s1);
@@ -198,7 +199,7 @@ public class sarraystr {
 	s2.add("a");
 	s2.add("q");
 	5 comparisons, 35 assignments
-	s1.fill();
+	s1.fill(); (k to b, reverse order)
 	25 comparisons, 100 assignments
 	*/
 	System.out.println("before ssort:\n"+ s2);
