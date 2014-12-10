@@ -1,13 +1,19 @@
 import java.util.*;
 import java.io.*;
 
-public class Mage extends BaseChar {
+public class Mage extends BaseChar implements Comparable {
 
     Random thing = new Random();
     
     public Mage(int h, int m, int a, int d, int s, int ac, int c, String n, String w){
 	 super(h,m,a,d,s,ac,c,n,w);
     }
+
+    public int compareTo(Object other) {
+	Mage m = (Mage)other;
+	return other.length() - this.length();
+    }
+    
     public String spell(Monster other, String userInput){
 	if(userInput.equals( "1") && thing.nextInt(this.getACC()) > 20 ) {
 	    if ((this.getMP() - 20) < 0) {
@@ -57,5 +63,6 @@ public class Mage extends BaseChar {
 	    }
 	    return "";
 	}
-    }	
+    }
+    
 }
