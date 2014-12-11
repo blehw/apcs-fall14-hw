@@ -64,6 +64,27 @@ public class Mage extends BaseChar implements Comparable {
 	    return "";
 	}
     }
+
+    /*
+      Searching: 
+
+      Search(int[] a, int value);
+      Character c = new Character("fred");
+      Search(ArrayList<Character> A, Character c);
+
+      1. Send in a String with name
+      2. Send in an instance of class with the name set
+
+      Binary Search:
+      if the list is sorted, start looking at the middle
+      mid = n/2
+      if a[mid] is what we want, we're done
+      if what we want < a[mid]: high = mid-1
+      else: low = mid+1
+
+      Integer, String, and Mage are all Comparable
+      f(Comparable[] a, ________)
+    */
     
     public static void main(String[] args) {
 	Mage m1 = new Mage(1,1,1,1,1,1,1,"Will","sword");
