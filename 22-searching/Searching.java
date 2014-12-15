@@ -40,32 +40,49 @@ public class Searching {
 	}
 	return null;
     }
-
     
     public Comparable bsearch(Comparable n) {
-	int m = a.length / 2;
-	int p = a.length / 4;
+	int low = 0;
+	int high = a.length - 1;
+	int count = a.length / 2;
 
-	while (true) {
-	    if (a[m] == n) {
-		return a[m];
+	while (count != low && count != high) {
+	    if (a[count] == n) {
+		return n;
+	    } 
+	    if (count == low || count == high) {
+		return null;
+	    }
+	    if ((a[count]).compareTo((char)n) < 0) {
+		low = count;
+		count = (low + high) / 2;
 	    } else {
-		if (m == p) {
-		    return null;
-		} /* else {
-		    if (a[m].compareTo(n) < 0) {
-		        p = m;
-			m = m + (m/2);
-		    } else {
-			p = m;
-			m = m/2;
-		    }  
-		}
-		  */
+		high = count;
+		count = (low + high) / 2;
 	    }
 	}
+	return null;
     }
-    
+
+    public Comparable bsearch(Comparable n, int low, int high) {
+	int count = (low + high) / 2;
+
+	while (count != low && count != high) {
+	    if (a[count] == n) {
+		return n;
+	    } 
+	    if (count == low || count == high) {
+		return null;
+	    }
+	    if ((a[count]).compareTo((char)n) < 0) {
+		rbsearch(n,count,high);
+	    } else {
+		rbsearch(n,low,count);
+	    }
+	}
+	return null;
+    }
+	
 
     public static void main(String[] args) {
 	Searching s = new Searching(0);
@@ -78,6 +95,9 @@ public class Searching {
 	System.out.println(s);
 	System.out.println(s.lsearch('a'));
 	System.out.println(s.lsearch('u'));
-	System.out.println(s.bsearch('t'));
+        System.out.println(s.bsearch('a'));
+	System.out.println(s.bsearch('u'));
+	System.out.println(s.rbsearch('a'));
+	System.out.println(s.rbsearch('u'));
     }
 }
