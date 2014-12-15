@@ -1,0 +1,8 @@
+public class Searching {
+
+    private Comparable[] a;
+
+    public Searching(int elements){
+	a = new Comparable[elements];
+    }
+}
