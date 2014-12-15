@@ -64,7 +64,7 @@ public class Searching {
 	return null;
     }
 
-    public Comparable bsearch(Comparable n, int low, int high) {
+    public Comparable rbsearch(Comparable n, int low, int high) {
 	int count = (low + high) / 2;
 
 	while (count != low && count != high) {
