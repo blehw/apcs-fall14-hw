@@ -18,18 +18,12 @@ public class Searching {
 	return s;
     }
 
-    private void makeArray() {
-	Comparable[] newArray = new Comparable[a.length + 1];
-	for (int i=0;i<a.length;i++) {
-	    newArray[i] = a[i];
-	}
-	a = newArray;
+    public void add(int index, Comparable s) {
+	a[index] = s;
     }
 
-    public boolean add(Comparable s) {
-	makeArray();
-	a[a.length-1] = s;
-	return true;
+    public void sort() {
+	Arrays.sort(a);
     }
  
     public Comparable lsearch(Comparable n) {
@@ -40,7 +34,25 @@ public class Searching {
 	}
 	return null;
     }
-    
+
+    public Comparable bsearch(Comparable item){
+	sort();
+	int high = a.length;
+	int low = 0;
+	while ((high - low) > 0){
+	    int mid = (high +low)/2;
+	    int compare = a[mid].compareTo(item);
+	    if (compare == 0){
+		return a[mid];
+	    } else if (compare > 0){
+		high = mid -1;
+	    } else {
+		low = mid + 1;
+	    }
+	}
+	return null;
+    }
+    /*
     public Comparable bsearch(Comparable n) {
 	int low = 0;
 	int high = a.length - 1;
@@ -53,7 +65,7 @@ public class Searching {
 	    if (count == low || count == high) {
 		return null;
 	    }
-	    if ((a[count]).compareTo((char)n) < 0) {
+	    if ((a[count]).compareTo(n) < 0) {
 		low = count;
 		count = (low + high) / 2;
 	    } else {
@@ -62,8 +74,10 @@ public class Searching {
 	    }
 	}
 	return null;
-    }
+	}
+    */
 
+    /*
     public Comparable rbsearch(Comparable n, int low, int high) {
 	int count = (low + high) / 2;
 
@@ -82,14 +96,13 @@ public class Searching {
 	}
 	return null;
     }
-	
+    */
 
     public static void main(String[] args) {
 	Searching s = new Searching(0);
-	String letters = "abcdefghijklmnopqrstuvwxyz";
 
 	for (int i=0;i<20;i++) {
-	    s.add(letters.charAt(i));
+	    s.add(i,i);
 	}
 
 	System.out.println(s);
@@ -97,7 +110,7 @@ public class Searching {
 	System.out.println(s.lsearch('u'));
         System.out.println(s.bsearch('a'));
 	System.out.println(s.bsearch('u'));
-	System.out.println(s.rbsearch('a'));
-	System.out.println(s.rbsearch('u'));
+	//System.out.println(s.rbsearch('a'));
+	//System.out.println(s.rbsearch('u'));
     }
 }
