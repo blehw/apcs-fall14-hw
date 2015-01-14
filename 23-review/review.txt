@@ -1,0 +1,15 @@
+https://github.com/leoncheng57/AP-Final-Project
+
+First, include instructions on how to play/run it; I know you'll probably do 
+this later on, but I just opened up your game with no idea how to play, and I
+can't figure it out.
+
+Lines:
+10-repetitive code? 
+11-better to represent the character '1' as int 1
+106-You're making an instance of t? Is that necessary?
+114-I don't know if this will work? 
+122-create instance of Text
+137-same as 114
+162-same as 114
+247 to 265-what is this? Still necessary?
